@@ -16,9 +16,8 @@ class CreateContratoTable extends Migration
         Schema::create('contrato', function (Blueprint $table) {
             $table->increments('id_contrato');
 
-            $table->unsignedBigInteger('id_solicitud');
-            $table->foreign('id_solicitud')->references('id_solicitud')->on('solicitud');
-            
+            $table->integer('id_solicitud')->unsigned()->foreign()->references('id_solicitud')->on('solicitud')->onDelete('cascade');
+
             $table->float('costo_empleado', 8, 2);
             $table->float('costo_servicios', 8, 2);
             $table->float('costo_total', 8, 2);

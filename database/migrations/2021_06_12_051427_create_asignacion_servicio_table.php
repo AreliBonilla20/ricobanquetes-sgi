@@ -16,11 +16,9 @@ class CreateAsignacionServicioTable extends Migration
         Schema::create('asignacion_servicio', function (Blueprint $table) {
             $table->increments('id_asignacion_servicio');
 
-            $table->unsignedBigInteger('id_solicitud');
-            $table->foreign('id_solicitud')->references('id_solicitud')->on('solicitud');
+            $table->integer('id_solicitud')->unsigned()->foreign()->references('id_solicitud')->on('solicitud')->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_servicio');
-            $table->foreign('id_servicio')->references('id_servicio')->on('servicio');
+            $table->integer('id_servicio')->unsigned()->foreign()->references('id_servicio')->on('servicio')->onDelete('cascade');
 
             $table->float('costo', 8, 2);
             

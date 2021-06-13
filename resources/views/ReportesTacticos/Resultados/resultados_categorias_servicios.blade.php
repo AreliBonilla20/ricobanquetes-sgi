@@ -68,17 +68,17 @@
                         <table class="table table-striped" style="text-align:center;">
                         <thead>
                             <tr>
-                            <th scope="col">Género</th>
-                            <th scope="col">Cantidad</th>
+                            <th scope="col">Categorías de servicio</th>
+                            <th scope="col">Cantidad de solicitudes</th>
                             </tr>
                         </thead>
                         <tbody>
-                       
+                       @foreach($categorias_servicios as $categorias)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{{$categorias->categoria_evento}}</td>
+                                <td>{{$categorias->cantidad_solicitudes}}</td>
                             </tr>
-                        
+                        @endforeach
                         </tbody>
                         </table>
                     </div>

@@ -16,11 +16,9 @@ class CreateSolicitudTable extends Migration
         Schema::create('solicitud', function (Blueprint $table) {
             $table->increments('id_solicitud');
 
-            $table->unsignedBigInteger('id_categoria_evento');
-            $table->foreign('id_categoria_evento')->references('id_categoria_evento')->on('categoria_evento');
+            $table->integer('id_categoria_evento')->unsigned()->foreign()->references('id_categoria_evento')->on('categoria_evento')->onDelete('cascade');
 
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id_cliente')->on('cliente');
+            $table->integer('id_cliente')->unsigned()->foreign()->references('id_cliente')->on('cliente')->onDelete('cascade');
 
             $table->string('descripcion_solicitud', 1000);
             $table->date('fecha_solicitud');

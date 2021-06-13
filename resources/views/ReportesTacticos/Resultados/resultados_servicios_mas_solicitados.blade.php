@@ -51,6 +51,7 @@
                         <p>Código : RPT04</p>
                         <p>Nombre : Servicios más solicitados</p>
                         <p>Descripción : Reporte de los 3 servicios más solicitados por rango de tiempo.</p>
+                        <p>Período comprendido entre {{$inicio}} al {{$final}}</p>
             
                 </div>
                 

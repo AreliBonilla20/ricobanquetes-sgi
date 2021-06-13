@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    Resultados solicitudes de servicio y personal
+    Resultados ingresos por categoría comparadas por período
 @endsection
 @section('content')
 <div class="breadcomb-area">
@@ -16,13 +16,13 @@
                                 </div>
                                 <div class="breadcomb-ctn">
                                     <h2>Reporte</h2>
-                                    <p>Solicitudes de servicios y personal</p>
+                                    <p>Ingresos por categoría comparadas por período</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
 								<div class="breadcomb-report">
-                                    <form action="{{route('reporte_solicitudes_servicios')}}" method="POST">
+                                    <form action="{{route('reporte_ingresos_categorias')}}" method="POST">
                                         @csrf
                                         <input id="url_grafico_generos" name="url_grafico_generos" type="text" hidden>
                                         <input id="url_grafico_carreras" name="url_grafico_carreras" type="text" hidden>
@@ -47,12 +47,12 @@
                 <br>
                 <div style="text-align:center">
                     <h2 >Resultados</h2>
-                        <h3>Reporte</h3>
-                        <p>Código : RPT02</p>
-                        <p>Nombre : Solicitudes de servicios y personal</p>
-                        <p>Descripción : Reporte de las solicitudes de servicios y personal asignado por rangos de tiempo.</p>
-                        <p>Período comprendido entre {{$inicio}} al {{$final}}</p>
-            
+                    <h3>Reporte</h3>
+                    <h3>Reporte</h3>
+                        <p>Código : RPE01</p>
+                        <p>Nombre : Ingresos por categoría de servicios</p>
+                        <p>Descripción : Reporte de la comparación entre períodos de tiempo de los ingresos por categoría de servicios..</p>
+                        <p>Períodos comprendido entre {{$inicio_uno}} al {{$final_uno}} y {{$inicio_dos}} al {{$final_dos}}</p>
                 </div>
                 
               

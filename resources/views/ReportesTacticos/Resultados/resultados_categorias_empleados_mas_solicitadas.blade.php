@@ -51,6 +51,7 @@
                         <p>Código : RPT05</p>
                         <p>Nombre : Categorías de empleados más solicitadas</p>
                         <p>Descripción : Reporte de las 3 categorías de empleados más solicitadas por rangos de tiempo</p>
+                        <p>Período comprendido entre {{$inicio}} al {{$final}}</p>
             
                 </div>
                 

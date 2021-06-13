@@ -16,11 +16,9 @@ class CreateAsignacionEmpleadoTable extends Migration
         Schema::create('asignacion_empleado', function (Blueprint $table) {
             $table->increments('id_asignacion_empleado');
 
-            $table->unsignedBigInteger('id_empleado');
-            $table->foreign('id_empleado')->references('id_empleado')->on('empleado');
-
-            $table->unsignedBigInteger('id_solicitud');
-            $table->foreign('id_solicitud')->references('id_solicitud')->on('solicitud');
+            $table->integer('id_solicitud')->unsigned()->foreign()->references('id_solicitud')->on('solicitud')->onDelete('cascade');
+            
+            $table->integer('id_empleado')->unsigned()->foreign()->references('id_empleado')->on('empleado')->onDelete('cascade');
             
             $table->timestamps();
         });

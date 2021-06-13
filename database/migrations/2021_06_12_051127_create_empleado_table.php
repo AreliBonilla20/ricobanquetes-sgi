@@ -16,8 +16,7 @@ class CreateEmpleadoTable extends Migration
         Schema::create('empleado', function (Blueprint $table) {
             $table->increments('id_empleado');
 
-            $table->unsignedBigInteger('id_categoria_empleado');
-            $table->foreign('id_categoria_empleado')->references('id_categoria_empleado')->on('categoria_empleado');
+            $table->integer('id_categoria_empleado')->unsigned()->foreign()->references('id_categoria_empleado')->on('categoria_empleado')->onDelete('cascade');
             
             $table->string('nombres_empleado', 150);
             $table->string('apellidos_empleado', 150);
