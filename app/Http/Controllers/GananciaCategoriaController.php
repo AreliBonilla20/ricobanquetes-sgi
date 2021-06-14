@@ -24,13 +24,23 @@ class GananciaCategoriaController extends Controller
         $inicio_dos = $request->get('fecha_inicio_dos');
         $final_dos = $request->get('fecha_final_dos');
 
+        $ganancia_categoria_uno = DB::select('select nombre_categoria_evento, contrato.costo_total, contrato.ingreso_total, contrato.ingreso_total - contrato.costo_total as ganancia from categoria_evento 
+                                            inner join solicitud on categoria_evento.id_categoria_evento=solicitud.id_categoria_evento
+                                            inner join contrato on contrato.id_solicitud=solicitud.id_solicitud
+                                            where fecha_solicitud between ? and ?', [$inicio_uno, $final_uno]);
+
+        $ganancia_categoria_dos = DB::select('select nombre_categoria_evento, contrato.costo_total, contrato.ingreso_total, contrato.ingreso_total - contrato.costo_total as ganancia from categoria_evento 
+                                            inner join solicitud on categoria_evento.id_categoria_evento=solicitud.id_categoria_evento
+                                            inner join contrato on contrato.id_solicitud=solicitud.id_solicitud
+                                            where fecha_solicitud between ? and ?', [$inicio_dos, $final_dos]);                                   
+
         $inicio_uno = Fecha::fechaTexto($inicio_uno);
         $final_uno = Fecha::fechaTexto($final_uno);
         
         $inicio_dos = Fecha::fechaTexto($inicio_dos);
         $final_dos = Fecha::fechaTexto($final_dos);
 
-        return view('ReportesEstrategicos/resultados/resultados_ganancias_categorias', compact('inicio_uno', 'final_uno', 'inicio_dos', 'final_dos'));
+        return view('ReportesEstrategicos/resultados/resultados_ganancias_categorias', compact('inicio_uno', 'final_uno', 'inicio_dos', 'final_dos', 'ganancia_categoria_uno', 'ganancia_categoria_dos'));
     }
 
     public function reporte(Request $request)

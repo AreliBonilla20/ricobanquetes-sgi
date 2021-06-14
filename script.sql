@@ -36,7 +36,8 @@ INSERT INTO cliente (id_cliente, nombres_cliente, apellidos_cliente, telefono_cl
 (2, 'Isaac Antonio', 'González Sánchez', '6194-3846', 'Crío San Juan De Arena Cl Ppal', 'isaacgonzalez@gmail.com'),
 (3, 'Leticia Jazmín', 'Fernández Castro', '7871-3152', 'Urb Lomas De Altamira Cl El Talapo No 139', 'leticiafernandez@gmail.com'),
 (4, 'Pedro Javier', 'Cruz Flores', '7623-3840', 'Col. Palmira Cl. El Roble No 9-A', 'pedrocruz@gmail.com'),
-(5, 'Cecilia Fabiola', 'Rivera Morales', '7321-8714', 'Col. Escalón 3 Cl. Pte. No 35', 'ceciliarivera@gmail.com');
+(5, 'Cecilia Fabiola', 'Rivera Morales', '7321-8714', 'Col. Escalón 3 Cl. Pte. No 35', 'ceciliarivera@gmail.com'),
+(6, 'Ernesto José', 'Castro López', '7563-8461', 'Colonia El Roble Cl Los Cedros No 39', 'ernestocastro@gmail.com' );
 
 
 INSERT INTO empleado (id_empleado, id_categoria_empleado, nombres_empleado, apellidos_empleado, dui_empleado, telefono_empleado, direccion_empleado, correo_empleado) VALUES
@@ -51,8 +52,13 @@ INSERT INTO solicitud (id_solicitud, id_categoria_evento, id_cliente, descripcio
 (1, 1, 1, 'Se solicita todos los servicios de decoración, banquete y catering, pastel y mesa de postres', '2021-05-06', '2021-12-19', 'Hotel los girasoles', '16:00:00', 200, 'Iniciado'),
 (2, 4, 5, 'Se solicita los servicios de decoración, juegos inflables, pastel y mesa de postres', '2021-08-15', '2021-10-11', 'Cachito Mountain ', '15:30:00', 100, 'Pendiente'),
 (3, 7, 4, 'Se solicita todos los servicios de fiesta y personal para un evento grande', '2021-07-30', '2021-10-24', 'Hoter Princess', '19:00:00', 75, 'Pendiente'),
-(4, 2, 2, 'Se solicitan los servicios básicos para una pequeña recepción', '2021-07-15', '2021-08-01', 'Restaurante Pueblo Viejo', '17:00:00', 50, 'Iniciado'),
-(5, 6, 3, 'Se solicita urgentemente todos los servicios funebres necesarios', '2021-06-16', '2021-06-18', 'Funerarias Auxiliadora', '16:00:00', 100, 'Iniciado');
+(4, 2, 2, 'Se solicitan los servicios básicos para una pequeña recepción', '2021-07-15', '2021-08-01', 'Restaurante Pueblo Viejo', '17:00:00', 50, 'Pendiente'),
+(5, 6, 3, 'Se solicita urgentemente todos los servicios funebres necesarios', '2021-06-16', '2021-06-18', 'Funerarias Auxiliadora', '16:00:00', 100, 'Iniciado'),
+(6, 3, 1, 'Solicitando los servicios de catering y una pequeña mesa de postres', '2021-06-12', '2021-06-18', 'Sala de Té América', '10:00:00', 25, 'Iniciado'),
+(7, 5, 6, 'Se solicita personal para recepción y desarrollo de evento', '2021-06-21', '2021-06-24', 'Hotel Las Magnolias', '10:00:00', 35, 'Pendiente'),
+(8, 8, 4, 'Se solicitan servicios para evento empresarial con servicio de catering', '2021-07-01', '2021-07-06', 'AFP Confía', '19:00:00', 150, 'Pendiente'),
+(9, 4, 3, 'Se solicita todos los servicios de comida y catering para un evento mediano', '2021-05-31', '2021-06-09', 'Campo Montebello', '9:00:00', 60, 'Terminado'),
+(10, 2, 6, 'Solicitud para amenizar la celebración de una graduación, con comida y mesa de postres', '2021-04-25', '2021-05-02', 'Restaurante J&J', '13:00:00', 40, 'Terminado');
 
 
 INSERT INTO contrato (id_contrato, id_solicitud, costo_empleado, costo_servicios, costo_total, ingreso_total) VALUES
@@ -60,4 +66,20 @@ INSERT INTO contrato (id_contrato, id_solicitud, costo_empleado, costo_servicios
 (2, 2, 350.10, 850.75, 1500.50, 1800.00),
 (3, 3, 350.10, 1230.10, 2150.95, 3000.00),
 (4, 4, 350.10, 425.80, 900.30, 1100.00),
-(5, 5, 350.10, 450, 780.60, 950.00);
+(5, 5, 350.10, 450.0, 780.60, 950.00),
+(6, 6, 350.10, 275.0, 536.15, 650.00),
+(7, 7, 350.10, 650.50, 915.60, 1050.95),
+(8, 8, 350.10, 780.35, 863.82, 950.50);
+
+INSERT INTO asignacion_servicio(id_asignacion_servicio, id_solicitud, id_servicio, costo) VALUES
+(1, 2, 2, 1800.00),
+(2, 6, 6, 650.00),
+(3, 7, 6, 1050.95);
+
+INSERT INTO asignacion_empleado(id_asignacion_empleado, id_solicitud, id_empleado) VALUES
+(1, 1, 1),
+(2, 1, 4),
+(3, 1, 2),
+(4, 2, 1),
+(5, 3, 4),
+(6, 5, 5);

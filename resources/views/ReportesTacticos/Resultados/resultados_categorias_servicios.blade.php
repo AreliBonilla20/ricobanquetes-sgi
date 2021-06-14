@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title')
-    Resultados demanda por categoría de servicios
+    Resultados demanda por categoría de servicio
 @endsection
 @section('content')
 <div class="breadcomb-area">
@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="breadcomb-ctn">
                                     <h2>Reporte</h2>
-                                    <p>Demanda por categoría de servicios</p>
+                                    <p>Demanda por categoría de servicio</p>
                                 </div>
                             </div>
                         </div>
@@ -49,22 +49,20 @@
                     <h2 >Resultados</h2>
                     <h3>Reporte</h3>
                         <p>Código : RPT01</p>
-                        <p>Nombre : Demanda por categoría de servicios</p>
-                        <p>Descripción : Reporte de las categorías de servicios y la demanda que poseen por rangos de tiempo </p>
+                        <p>Nombre : Demanda por categoría de servicio</p>
+                        <p>Descripción : Reporte de las categorías de servicio y la demanda que poseen por rangos de tiempo </p>
                         <p>Período comprendido entre {{$inicio}} al {{$final}}</p>
                 </div>
                 
               
                 <br><br>
                 <div style="display:flex; flex-direction: column; align-items:center;">
-                <h4>ESTUDIANTES POR GÉNERO</h4>
-                    <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
-                    <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
-                    <h4>Tabla de estudiantes por género</h4>
+                <h4>DEMANDA POR CATEGORÍAS DE SERVICIO</h4>
+                   
                 <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="normal-table-list mg-t-30">
-                        
+                    <span>Tabla de categorías de servicios y cantidad de solicitudes</span>
                         <table class="table table-striped" style="text-align:center;">
                         <thead>
                             <tr>
@@ -81,9 +79,12 @@
                         @endforeach
                         </tbody>
                         </table>
+                       
                     </div>
                 </div>
                 </div>
+                <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
+                <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
                 
                 <br><br><br>
              

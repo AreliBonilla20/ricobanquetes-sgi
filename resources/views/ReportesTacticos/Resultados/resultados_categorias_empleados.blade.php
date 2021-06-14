@@ -57,33 +57,34 @@
               
                 <br><br>
                 <div style="display:flex; flex-direction: column; align-items:center;">
-                <h4>ESTUDIANTES POR GÉNERO</h4>
-                    <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
-                    <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
-                    <h4>Tabla de estudiantes por género</h4>
+                <h4>DEMANDA POR CATEGORÍAS DE EMPLEADO</h4>
+                   
                 <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="normal-table-list mg-t-30">
-                        
+                    <span>Tabla de categorías de empleado y cantidad de solicitudes</span>
                         <table class="table table-striped" style="text-align:center;">
                         <thead>
                             <tr>
-                            <th scope="col">Género</th>
-                            <th scope="col">Cantidad</th>
+                            <th scope="col">Categorías de empleado</th>
+                            <th scope="col">Cantidad de solicitudes</th>
                             </tr>
                         </thead>
                         <tbody>
-                       
+                       @foreach($categorias_empleados as $categorias)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{{$categorias->nombre_categoria_empleado}}</td>
+                                <td>{{$categorias->cantidad_empleados}}2</td>
                             </tr>
-                        
+                        @endforeach
                         </tbody>
                         </table>
+                       
+                    </div>
                     </div>
                 </div>
-                </div>
+                <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
+                <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
                 
                 <br><br><br>
              
