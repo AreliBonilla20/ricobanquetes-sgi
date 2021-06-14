@@ -24,23 +24,59 @@ class GananciaCategoriaController extends Controller
         $inicio_dos = $request->get('fecha_inicio_dos');
         $final_dos = $request->get('fecha_final_dos');
 
-        $ganancia_categoria_uno = DB::select('select nombre_categoria_evento, contrato.costo_total, contrato.ingreso_total, contrato.ingreso_total - contrato.costo_total as ganancia from categoria_evento 
+        $categorias = DB::select('select nombre_categoria_evento from categoria_evento');
+        $categorias_ganancias_uno = [];
+        $categorias_ganancias_dos = [];
+
+        $ganancias_periodo_uno = DB::select('select nombre_categoria_evento, round(contrato.ingreso_total - contrato.costo_total, 2) as ganancia from categoria_evento 
                                             inner join solicitud on categoria_evento.id_categoria_evento=solicitud.id_categoria_evento
                                             inner join contrato on contrato.id_solicitud=solicitud.id_solicitud
-                                            where fecha_solicitud between ? and ?', [$inicio_uno, $final_uno]);
+                                            where fecha_solicitud between ? and ? order by nombre_categoria_evento ', [$inicio_uno, $final_uno]);
 
-        $ganancia_categoria_dos = DB::select('select nombre_categoria_evento, contrato.costo_total, contrato.ingreso_total, contrato.ingreso_total - contrato.costo_total as ganancia from categoria_evento 
+        $ganancias_periodo_dos = DB::select('select nombre_categoria_evento, round(contrato.ingreso_total - contrato.costo_total, 2) as ganancia from categoria_evento 
                                             inner join solicitud on categoria_evento.id_categoria_evento=solicitud.id_categoria_evento
                                             inner join contrato on contrato.id_solicitud=solicitud.id_solicitud
-                                            where fecha_solicitud between ? and ?', [$inicio_dos, $final_dos]);                                   
+                                            where fecha_solicitud between ? and ? order by nombre_categoria_evento', [$inicio_dos, $final_dos]);
 
-        $inicio_uno = Fecha::fechaTexto($inicio_uno);
-        $final_uno = Fecha::fechaTexto($final_uno);
         
-        $inicio_dos = Fecha::fechaTexto($inicio_dos);
-        $final_dos = Fecha::fechaTexto($final_dos);
+        $elementos_periodo_uno = count($ganancias_periodo_uno);
+        $elementos_periodo_dos = count($ganancias_periodo_dos);
 
-        return view('ReportesEstrategicos/resultados/resultados_ganancias_categorias', compact('inicio_uno', 'final_uno', 'inicio_dos', 'final_dos', 'ganancia_categoria_uno', 'ganancia_categoria_dos'));
+        for ($i = 0; $i < count($ganancias_periodo_uno); $i++) {
+            $categorias_ganancias_uno[$i] = $ganancias_periodo_uno[$i]->ganancia;
+            if($ganancias_periodo_uno[$i]->ganancia == ''){
+                $categorias_ganancias_uno[$i] = 0.00;
+            }
+        }
+
+        for ($i = 0; $i < (count($categorias) - count($ganancias_periodo_uno)); $i++) {
+            $categorias_ganancias_uno[$elementos_periodo_uno] = 0.00;
+            $elementos_periodo_uno++;
+        }
+        
+
+
+        for ($i = 0; $i < count($ganancias_periodo_dos); $i++) {
+            $categorias_ganancias_dos[$i] = $ganancias_periodo_dos[$i]->ganancia;
+            if($ganancias_periodo_dos[$i]->ganancia == ''){
+                $categorias_ganancias_dos[$i] = 0.00;
+            }
+        }
+
+        for ($i = 0; $i < (count($categorias) - count($ganancias_periodo_dos)); $i++) {
+            $categorias_ganancias_dos[$elementos_periodo_dos] = 0.00;
+            $elementos_periodo_dos++;
+        }
+        
+    
+        $inicio_uno_f = Fecha::fechaTexto($inicio_uno);
+        $final_uno_f = Fecha::fechaTexto($final_uno);
+        
+        $inicio_dos_f = Fecha::fechaTexto($inicio_dos);
+        $final_dos_f = Fecha::fechaTexto($final_dos);
+
+        return view('ReportesEstrategicos/resultados/resultados_ganancias_categorias', compact('inicio_uno', 'final_uno', 'inicio_dos', 'final_dos', 
+        'inicio_uno_f', 'final_uno_f', 'inicio_dos_f', 'final_dos_f', 'categorias_ganancias_uno', 'categorias_ganancias_dos', 'categorias'));
     }
 
     public function reporte(Request $request)

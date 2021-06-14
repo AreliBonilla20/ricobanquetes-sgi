@@ -51,39 +51,43 @@
                         <p>Código : RPE02</p>
                         <p>Nombre : Ganancias por categoría de servicios</p>
                         <p>Descripción : Reporte de la comparación entre períodos de tiempo de las ganancias obtenidas por categoría de servicios </p>
-                        <p>Períodos comprendido entre {{$inicio_uno}} al {{$final_uno}} y {{$inicio_dos}} al {{$final_dos}}</p>
+                        <p>Del {{$inicio_uno_f}} al {{$final_uno_f}} <br> y 
+                        {{$inicio_dos_f}} al {{$final_dos_f}}</p>
                 </div>
                 
               
                 <br><br>
                 <div style="display:flex; flex-direction: column; align-items:center;">
-                <h4>ESTUDIANTES POR GÉNERO</h4>
+                <h4>GANANCIAS POR CATEGORÍA DE SERVICIOS</h4>
+                   
+                    <h4>Tabla de ganancias por caetegoría del período  al {{$final_uno}}</h4>
+                    <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="normal-table-list mg-t-30">
+                            
+                            <table class="table table-striped" style="text-align:center;">
+                            <thead>
+                                <tr>
+                                <th scope="col">Categoría de servicio</th>
+                                <th scope="col">Ganancias {{$inicio_uno}} al {{$final_uno}}</th>
+                                <th scope="col">Ganancias {{$inicio_dos}} al{{$final_dos}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for($i=0; $i<count($categorias); $i++)
+                                <tr>
+                                    <td>{{$categorias[$i]->nombre_categoria_evento}}</td>
+                                    <td>$ {{$categorias_ganancias_uno[$i]}}</td>
+                                    <td>$ {{$categorias_ganancias_dos[$i]}}</td>
+                                </tr>
+                                @endfor
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                  
                     <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
                     <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
-                    <h4>Tabla de estudiantes por género</h4>
-                <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="normal-table-list mg-t-30">
-                        
-                        <table class="table table-striped" style="text-align:center;">
-                        <thead>
-                            <tr>
-                            <th scope="col">Género</th>
-                            <th scope="col">Cantidad</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                       
-                            <tr>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-                </div>
                 
                 <br><br><br>
              
