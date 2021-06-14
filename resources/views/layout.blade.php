@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="{{ url ('home') }}"><img src="{{ asset('img/logo/logo.png') }}" width="350px"/></a>
+                        <a href="{{ url ('home') }}"><img src="{{ asset('img/logo/logoadentro.png') }}" width="200px"/></a>
                     </div>
                 </div>
                 <br><br><br><br><br>

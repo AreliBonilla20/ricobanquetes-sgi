@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Proyección social</title>
+        <title> Ricobanquetes </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon
@@ -115,7 +115,7 @@
     </div>
 <!-- Contenido principal -->
 <div class="invoice-img" style="background: #ffffff;" >
-<img src="img/post/banner.png" width="45%" alt="" />
+<img src="img/post/logo2.png" width="20%" alt="" />
 </div>
 <br><br>
 <div class="contact-area" style="text-align: center;">
