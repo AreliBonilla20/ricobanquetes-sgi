@@ -41,7 +41,8 @@ class CategoriaServicioController extends Controller
         $inicio = $request->get('fecha_inicio');
         $final = $request->get('fecha_final');
         $url_grafico = $request->get('url_grafico');
-
+        $fecha_actual =  Fecha::fechaTexto(date("d-m-Y"));
+    
         $categorias_servicios = DB::select('select nombre_categoria_evento as categoria_evento, count(id_solicitud) as cantidad_solicitudes from categoria_evento 
                                             inner join solicitud on solicitud.id_categoria_evento = categoria_evento.id_categoria_evento
                                             where fecha_solicitud between ? and ?
@@ -50,7 +51,7 @@ class CategoriaServicioController extends Controller
         $inicio = Fecha::fechaTexto($inicio);
         $final = Fecha::fechaTexto($final);
 
-        $pdf=PDF::loadView('ReportesTacticos/ReportePDF/reporte_categoria_servicios', compact('inicio', 'final', 'categorias_servicios', 'url_grafico'));//Cargar la vista y recibe como parámetro el array de proyectos
+        $pdf=PDF::loadView('ReportesTacticos/ReportePDF/reporte_categoria_servicios', compact('fecha_actual', 'inicio', 'final', 'categorias_servicios', 'url_grafico'));//Cargar la vista y recibe como parámetro el array de proyectos
         return $pdf->stream('Reporte_categorias_servicios.pdf');//Retorna el pdf de los estudiantes inscritos..
     }
 }
