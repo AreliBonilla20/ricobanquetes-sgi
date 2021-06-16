@@ -24,6 +24,10 @@
 								<div class="breadcomb-report">
                                     <form action="{{route('reporte_ganancias_totales')}}" method="POST">
                                         @csrf
+                                        <input type="text" name="fecha_inicio_uno" value="{{$inicio_uno}}" hidden>
+                                        <input type="text" name="fecha_final_uno" value="{{$final_uno}}" hidden>
+                                        <input type="text" name="fecha_inicio_dos" value="{{$inicio_dos}}" hidden>
+                                        <input type="text" name="fecha_final_dos" value="{{$final_dos}}" hidden>
                                     <button formtarget="_blank" data-toggle="tooltip" data-placement="left"
                                     class="btn btn-default"><i class="notika-icon notika-down-arrow"></i> Generar PDF</button>
                                     </form>
@@ -57,7 +61,7 @@
                 <div style="display:flex; flex-direction: column; align-items:center;">
                 <h4>GANANCIAS TOTALES DE DOS PERÍODOS</h4>
                   
-                    <h4>Tabla de ganancias totales por período</h4>
+                    <h4>Tabla de ganancias totales del período {{$inicio_uno}} al {{$final_uno}} vs {{$inicio_dos}} al {{$final_dos}}</h4>
                 <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="normal-table-list mg-t-30">
@@ -66,8 +70,8 @@
                         <thead>
                             <tr>
                            
-                            <th scope="col">{{$inicio_uno}} al {{$final_uno}}</th>
-                            <th scope="col">{{$inicio_dos}} al {{$final_dos}}</th>
+                            <th scope="col">Ganancias {{$inicio_uno}} al {{$final_uno}}</th>
+                            <th scope="col">Ganancias {{$inicio_dos}} al {{$final_dos}}</th>
                             </tr>
                         </thead>
                         <tbody>
