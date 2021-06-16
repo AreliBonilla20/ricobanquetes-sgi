@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth/login');
 });
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function(){
 
 //reportes tacticos
 
@@ -54,3 +59,5 @@ Route::get('consultar_ganancias_totales', 'GananciaTotalController@consultar')->
 Route::post('reporte_ingresos_categorias', 'IngresoCategoriaController@reporte')->name('reporte_ingresos_categorias');
 Route::post('reporte_ganancias_categorias', 'GananciaCategoriaController@reporte')->name('reporte_ganancias_categorias');
 Route::post('reporte_ganancias_totales', 'GananciaTotalController@reporte')->name('reporte_ganancias_totales');
+
+});

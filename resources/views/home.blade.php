@@ -70,7 +70,52 @@
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" >
                         <div class="header-top-menu">
                             <ul class="nav navbar-nav notika-top-nav">
-
+                                 <!-- Authentication Links -->
+                                 @guest
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                 </li>
+                                 <li class="nav-item">
+                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                 </li>
+                                 @else
+                                 <li style="background: black," onmouseover="this.style.background=' #2d2e2e';" onmouseout="this.style.background=' #2d2e2e';" class="nav-item dropdown">
+                                     <a style="font-size: 15px;" onmouseover="this.style.background=' #2d2e2e';" onmouseout="this.style.background=' #2d2e2e';" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                         {{ Auth::user()->name }} <span class="caret"></span>
+                                     </a>
+                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+ 
+                                         @can('usuario')
+ 
+                                         <a  style="font-size: 15px; color: #908C8C; padding:5%; padding-left:5%;"; class="dropdown-item" href = "{{ route('usuarios') }}">
+                                             <i class="notika-icon notika-support"></i> Usuarios
+                                         </a>
+                                         <br>
+                                         @endcan
+                                         @can('roles')
+ 
+                                         <a style="font-size: 15px; color: #908C8C; padding:5%; padding-left:5%;" class="dropdown-item" href="{{ route('roles') }}">
+                                             <i class="notika-icon notika-menus"></i> {{ __('Roles') }}
+                                         </a>
+                                         <br>
+                                         <a style="font-size: 15px; color: #908C8C; padding:5%; padding-left:5%;" class="dropdown-item" href="{{ route('sitio_index') }}">
+                                             <i class="notika-icon notika-search"></i> {{ __('Sitio web') }}
+                                         </a>
+ 
+                                         @endcan
+                                         <hr>
+                                         <a style="font-size: 15px; color: #908C8C; padding:5%; padding-left:5%;" class="dropdown-item" href="{{ route('logout') }}"
+                                             onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                             <i class="notika-icon notika-left-arrow"></i> Cerrar sesión
+                                         </a>
+ 
+                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                             @csrf
+                                         </form>
+                                     </div>
+                                 </li>
+                                 @endguest
                                     
                             </li>
                         </ul>
@@ -87,7 +132,7 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
-                                <li><a href="{{url('home')}}">Inicio</a>
+                                <li><a href="{{url('/home')}}">Inicio</a>
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#reportes_estrategicos" href="#">Reportes estratégicos</a>
                                     <ul class="collapse dropdown-header-top">

@@ -109,7 +109,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="logo-area">
-                        <a href="{{ url ('/') }}"><img src="{{ asset('img/logo/logoadentro.png') }}" width="200px"/></a>
+                        <a href="{{ url ('home') }}"><img src="{{ asset('img/logo/logoadentro.png') }}" width="200px"/></a>
                     </div>
                 </div>
                 <br><br><br><br><br>
@@ -135,7 +135,7 @@
                     <div class="mobile-menu">
                         <nav id="dropdown">
                             <ul class="mobile-menu-nav">
-                                <li><a href="{{url('/')}}">Inicio</a>
+                                <li><a href="{{url('home')}}">Inicio</a>
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#reportes_estrategicos" href="#">Reportes estratégicos</a>
                                     <ul class="collapse dropdown-header-top">
