@@ -24,8 +24,6 @@
 								<div class="breadcomb-report">
                                     <form action="{{route('reporte_ganancias_totales')}}" method="POST">
                                         @csrf
-                                        <input id="url_grafico_generos" name="url_grafico_generos" type="text" hidden>
-                                        <input id="url_grafico_carreras" name="url_grafico_carreras" type="text" hidden>
                                     <button formtarget="_blank" data-toggle="tooltip" data-placement="left"
                                     class="btn btn-default"><i class="notika-icon notika-down-arrow"></i> Generar PDF</button>
                                     </form>

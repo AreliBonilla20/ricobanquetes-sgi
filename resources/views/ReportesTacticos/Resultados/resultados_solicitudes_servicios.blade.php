@@ -86,7 +86,7 @@
                     </div>
                     
                 </div>
-                <div id="grafico" style="width: 900px; height: 500px; padding:15%""></div>
+                <div id="grafico" style="width: 900px; height: 500px; padding:15%" hidden></div>
                 <div id="grafico_imagen" style="width: 900px; height: 500px;" hidden></div>
                
                 

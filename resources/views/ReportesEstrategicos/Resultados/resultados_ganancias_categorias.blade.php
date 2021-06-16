@@ -22,10 +22,12 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
 								<div class="breadcomb-report">
-                                    <form action="{{route('reporte_categorias_servicios')}}" method="POST">
+                                    <form action="{{route('reporte_ganancias_categorias')}}" method="POST">
                                         @csrf
-                                        <input id="url_grafico_generos" name="url_grafico_generos" type="text" hidden>
-                                        <input id="url_grafico_carreras" name="url_grafico_carreras" type="text" hidden>
+                                        <input type="text" name="fecha_inicio_uno" value="{{$inicio_uno}}" hidden>
+                                        <input type="text" name="fecha_final_uno" value="{{$final_uno}}" hidden>
+                                        <input type="text" name="fecha_inicio_dos" value="{{$inicio_dos}}" hidden>
+                                        <input type="text" name="fecha_final_dos" value="{{$final_dos}}" hidden>
                                     <button formtarget="_blank" data-toggle="tooltip" data-placement="left"
                                     class="btn btn-default"><i class="notika-icon notika-down-arrow"></i> Generar PDF</button>
                                     </form>
@@ -60,7 +62,7 @@
                 <div style="display:flex; flex-direction: column; align-items:center;">
                 <h4>GANANCIAS POR CATEGORÍA DE SERVICIOS</h4>
                    
-                    <h4>Tabla de ganancias por caetegoría del período  al {{$final_uno}}</h4>
+                    <h4>Tabla de ganancias por categoría del período {{$inicio_uno}} al {{$final_uno}} vs {{$inicio_dos}} al {{$final_dos}}</h4>
                     <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="normal-table-list mg-t-30">
@@ -70,7 +72,7 @@
                                 <tr>
                                 <th scope="col">Categoría de servicio</th>
                                 <th scope="col">Ganancias {{$inicio_uno}} al {{$final_uno}}</th>
-                                <th scope="col">Ganancias {{$inicio_dos}} al{{$final_dos}}</th>
+                                <th scope="col">Ganancias {{$inicio_dos}} al {{$final_dos}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,22 +87,15 @@
                             </table>
                         </div>
                     </div>
-                  
-                    <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
-                    <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
-                
-                <br><br><br>
-             
+
             </div>
+            <br><br><br><br><br>>
     
         </div>
         
     </div>
 </div>
 </div>
-
-
-
 
 
 @endsection

@@ -60,13 +60,6 @@
                                     @endforeach
                                     </tbody>
                                     </table>
-                                       
-                                     <br>
-                                    <span>Gráfico de las 3 categorías de servicios más solicitados</span>
-                                  <br><br><br>
-                                      
-                                        <img alt="" src="{{$url_grafico}}" width="70%">
-                                    </div>
                                 </div>
                                 </div>
                                 

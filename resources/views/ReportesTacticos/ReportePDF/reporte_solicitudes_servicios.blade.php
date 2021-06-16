@@ -60,20 +60,6 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                       
-                                       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                                    <header style="padding:5%; text-align:justify;" >
-                                        <div style="text-align:center; line-height: 0.1;">
-                                        <img src="img/post/logo2.png" width="20%" alt="" />
-                                            <h3>Ricobanquetes S.A de C.V</h3> 
-                                        </div>
-                                        <hr>
-                                    </header>
-                                    <span>Gráfico de solicitudes de servicios y personal</span>
-                                    <br><br><br>
-                                      
-                                        <img alt="" src="{{$url_grafico}}" >
-                                    </div>
                                 </div>
                                 </div>
                                 

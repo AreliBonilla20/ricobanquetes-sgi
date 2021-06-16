@@ -24,8 +24,10 @@
 								<div class="breadcomb-report">
                                     <form action="{{route('reporte_ingresos_categorias')}}" method="POST">
                                         @csrf
-                                        <input id="url_grafico_generos" name="url_grafico_generos" type="text" hidden>
-                                        <input id="url_grafico_carreras" name="url_grafico_carreras" type="text" hidden>
+                                        <input type="text" name="fecha_inicio_uno" value="{{$inicio_uno}}" hidden>
+                                        <input type="text" name="fecha_final_uno" value="{{$final_uno}}" hidden>
+                                        <input type="text" name="fecha_inicio_dos" value="{{$inicio_dos}}" hidden>
+                                        <input type="text" name="fecha_final_dos" value="{{$final_dos}}" hidden>
                                     <button formtarget="_blank" data-toggle="tooltip" data-placement="left"
                                     class="btn btn-default"><i class="notika-icon notika-down-arrow"></i> Generar PDF</button>
                                     </form>
@@ -85,8 +87,6 @@
                             </table>
                 </div>
                 </div>
-                <div id="grafico_genero" style="width: 900px; height: 500px;"></div>
-                    <div id="grafico_genero_imagen" style="width: 900px; height: 500px;" hidden></div>
                 
                 <br><br><br>
              

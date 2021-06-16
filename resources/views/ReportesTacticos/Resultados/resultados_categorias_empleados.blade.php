@@ -84,7 +84,7 @@
                     </div>
                     </div>
                 </div>
-                <div id="grafico" style="width: 900px; height: 500px; padding:15%""></div>
+                <div id="grafico" style="width: 900px; height: 500px; padding:15%" hidden></div>
                 <div id="grafico_imagen" style="width: 900px; height: 500px;" hidden></div>
                
                 
@@ -113,7 +113,7 @@
       var data = google.visualization.arrayToDataTable([
         ["Servicio", "Cantidad Empleados", { role: "style" } ],
         @foreach($categorias_empleados as $categorias)
-        ["{{$categorias->nombre_categoria_empleado}}}", {{$categorias->cantidad_empleados}}, random_color()],
+        ["{{$categorias->nombre_categoria_empleado}}", {{$categorias->cantidad_empleados}}, random_color()],
         @endforeach
       ]);
 
